@@ -11,5 +11,6 @@ public class StringBuilderPractice {
     public static void main(String[] args) {
         StringBuilder sb= new StringBuilder("Abhijeet");
         sb.reverse();
+        System.out.println("Integer.reverse(115) = " + Integer.reverse(115));
     }
 }

@@ -76,14 +76,17 @@ public class JavaProblemsSolved {
 //        Random num= new Random();
 //        System.out.println("num.nextInt() = " + num.nextInt(100, 500));
 
-try {
-    stringToDateExample();
-} catch (Exception e){
-
-        }
+//try {
+//    stringToDateExample();
+//} catch (Exception e){
+//
+//        }
  //       dateFormatter();
 
-
+      //  hashTableProcess();
+       // checkForPrimeNumber(53);
+     //   checkForDuplicateNumbersAndCountUsingCollection(new int[] {1,7,5,3,1,4,8,2,4,7,2,3,2,10});
+        practiceCoddingProblem1();
     }
 
 /////////////////////////////////////// Numbers / Integers  ///////////////////////////////////////////////
@@ -115,7 +118,7 @@ try {
     }
 
     private static int[] arraySort(int[] a, String sortType) {
-
+        Arrays.sort(a);
         switch (sortType) {
             case "Ascending":
                 for (int i = 0; i < a.length; i++) {
@@ -341,7 +344,21 @@ try {
 
     }
 
+    private static void checkForDuplicateNumbersAndCountUsingCollection(int[] nums) {
 
+        HashMap<Integer, Integer> map= new HashMap<>();
+        for(int j: nums){
+            if(map.containsKey(j)){
+               map.put(j, map.get(j)+1);
+            } else{
+                map.put(j, 1);
+            }
+        }
+
+        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+            System.out.println(entry.getKey() + " : "+ entry.getValue());
+        }
+    }
     /////////////////////////////////////////////////// Strings //////////////////////////////////////////////
     private static String reverseStringWithStringBuffer(String str) {
         StringBuffer sb = new StringBuffer(str);
@@ -508,6 +525,10 @@ try {
         ht.put("age","33");
         ht.put("dept","IT");
         ht.put("city","Pune");
+        ht.forEach((k,v) -> {
+            System.out.println("key is:"+ k);
+            System.out.println("value is:"+ v);
+        });
 
         for(Map.Entry h: ht.entrySet()){
             System.out.println(h.getKey() +" "+  h.getValue());
@@ -563,4 +584,62 @@ try {
     }
     ////////////////////////////////////// String ///////////////////////////////
 
+    //Find the longest common prefix from the given array of string. In the following example apple, ape, april - longest common prefix is ape.
+    public static void longestCommonPrefix(){
+        String[] names= {"apple","ape","april"};
+        int[] count= {names[0].length(), names[1].length(), names[2].length()};
+        Arrays.sort(count);
+        String prefix= names[0];
+        for(int i=1; i<names.length;i++){
+            while(names[i].indexOf(prefix)!=0){
+                prefix= prefix.substring(0, prefix.length()-1);
+                System.out.println("prefix at i="+i +" is =" + prefix);
+            }
+            if(prefix.length()==0){
+                System.out.println("iNo Longest common prefix found");
+            } else{
+                System.out.println("Longest common prefix is :"+ prefix);
+            }
+        }
+    }
+
+    public static void practiceCoddingProblem1(){
+        String s1="My Name Is Jugal";
+        String output="Ju galI sN ameMy";
+
+        String s2=s1.replaceAll(" ","");
+        int count=  s2.length();
+//        String[] arr= new String[count];
+//
+//        for(int i=0; i<count; i++){
+//            arr[i]=s1.split(" ")[i];
+//        }
+
+        LinkedList<Character> charList= new LinkedList<>();
+
+        for(int i=count-1; i>=0; i--){
+            charList.add(s2.charAt(i));
+        }
+
+        for(Character c: charList){
+            System.out.print(c);
+        }
+       // System.out.println("charList = " + charList);
+
+//        char[] newChar= new char[s1.length()];
+//        newChar= s2.toCharArray();
+//
+//        String op="";
+//        for(int i=0; i<s1.length(); i++){
+//            if(s1.charAt(i)==' '){
+//                op=op+ String.valueOf(' ');
+//                System.out.println("output inside if block is: "+ op);
+//            } else {
+//                op=op+ String.valueOf(newChar[i]);
+//                System.out.println("output outside if block is: "+ op);
+//            }
+//
+//            System.out.println("Final output= "+ op);
+//        }
+    }
 }

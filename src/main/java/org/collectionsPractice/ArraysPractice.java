@@ -12,6 +12,5 @@ public class ArraysPractice {
             System.out.println("n = " + n);
         }
         String s="Abhijeet";
-
     }
 }

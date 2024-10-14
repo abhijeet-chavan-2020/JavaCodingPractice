@@ -1,4 +1,4 @@
-package org.collectionsPractice;
+package main.java.org.collectionsPractice;
 
 import java.util.Iterator;
 import java.util.NavigableSet;
