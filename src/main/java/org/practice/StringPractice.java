@@ -1,6 +1,8 @@
 package main.java.org.practice;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class StringPractice {
 
@@ -116,8 +118,19 @@ public class StringPractice {
 
         ///////////////////////////////////////////////////
     }
+    
+    public static void reverseStringInSameOrder(){
+        String s="My Name is Abhijeet";
+        String reversed="";
+        List<StringBuilder> list= new ArrayList<>();
+        for(int i=0; i<s.split(" ").length; i++){
+            StringBuilder sb= new StringBuilder(s.split(" ")[i]);
+            reversed= reversed+sb.reverse()+" ";
+        }
+        System.out.println("Reversed string is = " + reversed.trim());
+    }
     public static void main(String[] args) {
-        waysToImplementString();
-
+       // waysToImplementString();
+        reverseStringInSameOrder();
     }
 }

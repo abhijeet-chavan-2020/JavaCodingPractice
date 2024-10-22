@@ -46,6 +46,9 @@ public class ArrayListPractice {
     public static void main(String[] args) {
         ArrayList<Integer > al= new ArrayList<Integer>(List.of(1, 6, 9 ));
         System.out.println("al = " + al);
+        al.set(1,55);
+        System.out.println("al = " + al);
+
         System.out.println("al.size() = " + al.size());
         ArrayList<String > al1= new ArrayList<>();
         System.out.println("al1.size() = " + al1.size());
@@ -55,7 +58,8 @@ public class ArrayListPractice {
         System.out.println("after al2.ensureCapacity(100) al2.size() = " + al1.size());
         al.trimToSize();
         System.out.println("After al.trimToSize() al.size() = " + al.size());
-        Integer ia[]= new Integer[al.size()];
+        Integer[] ia = new Integer[al.size()];
+        Integer[] intArr = {15,12,14};
         ia= al.toArray(ia);
         int sum=0;
         for(int i:ia){
@@ -90,5 +94,8 @@ public class ArrayListPractice {
         System.out.println("arrayList.equals(arrayList1) = " + arrayList1.equals(arrayList2));
         arrayList2.removeAll(List.of(3));
         System.out.println("After removing duplicates arrayList2 = " + arrayList2);
+
+        List<String> listStr= new ArrayList<>(List.of("Abhijeet","Rahul","Rohit"));
+        Arrays.stream(arr).filter(s-> s%2==1).forEach(System.out::println);
     }
 }
